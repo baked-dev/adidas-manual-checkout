@@ -11,11 +11,6 @@ npm install
 
 ## Run
 
-try
 ```
-electron main.js
-```
-if that doesnt work use
-```
-node_modules/.bin/electron main.js
+npm start
 ```
