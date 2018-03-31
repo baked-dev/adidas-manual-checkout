@@ -1,0 +1,102 @@
+@font-face{
+    font-family: AdiBold;
+    src: url(fonts/adineue-pro-black.ttf);
+  }
+  
+@font-face{
+    font-family: YeezyLight;
+    src: url(fonts/yeezy_tstar-light-webfont.ttf);
+}
+
+@font-face{
+    font-family: YeezyBold;
+    src: url(fonts/yeezy_tstar-bold-webfont.ttf);
+}
+
+body {
+    max-width: 500px;
+    margin: auto;
+    overflow: hidden;
+    background: #ECECE2;
+    color: #141414;
+}
+
+.blacktop{
+    width: 100%;
+    height: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0 auto;  
+    background: #141414;
+    color: #FFF;
+}
+
+.main{
+    margin-top: 65px;
+    font-family: YeezyBold;
+    text-align: center;
+}
+
+.topmenu{
+    font-family: AdiBold;
+    font-size: 16px;
+    height: 42px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left{
+    float: left;
+    padding-left: 20px;
+}
+
+.right{
+    float: right;
+    padding-right: 20px;
+}
+
+#cookieinput{
+    width: 300px;
+    background-color: transparent;
+    color: #141414;
+    border: 2px solid #141414;;
+    padding-left: 5px;
+    padding-bottom: 2px;
+    font-family: YeezyLight;
+}
+
+select{
+    background-color: transparent;
+    color: #141414;
+    border: 2px solid #141414;;
+    user-select: none;
+    font-family: YeezyBold;
+
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+#main button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+html{
+    user-select: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    color:#141414;
+}
