@@ -9,11 +9,11 @@
         window.ipcRenderer = ipcRenderer;
     </script>
     <body>
-        <div class="blacktop">
+        <div class="blacktop" style="-webkit-app-region: drag">
             <div class="topmenu left">
                 xHalfBakedGuy Manual Checkout
             </div>
-            <div class="topmenu right" onclick="ipcRenderer.send('close')">
+            <div class="topmenu right" style="-webkit-app-region: no-drag; cursor:pointer;" onclick="ipcRenderer.send('close')">
                 close
             </div>
         </div>
