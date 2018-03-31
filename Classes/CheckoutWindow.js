@@ -16,9 +16,7 @@ class CheckoutWindow extends BrowserWindow{
         this.webContents.session.clearStorageData([], () => {
             if(cookie.includes('document.cookie')) cookie = cookie.split('"')[1]
             this.webContents.session.cookies.set({url: 'http://www.'+region_data[this.region].base, name: cookie.split('=')[0], value: cookie.split('=')[1]}, (error) => {
-                if(error){
-                    console.log(error);
-                }
+                if(error) throw new Error(error);
                 this.loadURL(`https://www.${region_data[this.region].base}/on/demandware.store/Sites-adidas-${region_data[this.region].countrycode}-Site/${region_data[this.region].lang}/${type==="paypal"?"CODelivery-RedirectToPaypal":"COShipping-Show"}`)
             })
         })

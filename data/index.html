@@ -79,7 +79,7 @@
         function open_new(type = false){
             let task = {
                 cookie: document.getElementById('cookieinput').value,
-                region:document.getElementById('regionselect').value,
+                region: document.getElementById('regionselect').value,
                 type
             }
             ipcRenderer.send('open_new', task);
