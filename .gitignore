@@ -1,0 +1,3 @@
+#ignore nore modules and package lock
+node_modules
+package-lock.json
