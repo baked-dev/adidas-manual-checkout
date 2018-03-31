@@ -13,7 +13,7 @@ module.exports = {
     },
     US:{
         countrycode:"US",
-        base:"adidas.com/us",
+        base:"adidas.com",
         end:"com",
         lang:"en_US"
     }
