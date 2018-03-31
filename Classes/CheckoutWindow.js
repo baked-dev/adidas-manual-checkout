@@ -14,6 +14,7 @@ class CheckoutWindow extends BrowserWindow{
         })
         this.region = region;
         this.webContents.session.clearStorageData([], () => {
+            if(cookie.includes('document.cookie')) cookie = cookie.split('"')[1]
             this.webContents.session.cookies.set({url: 'http://www.'+region_data[this.region].base, name: cookie.split('=')[0], value: cookie.split('=')[1]}, (error) => {
                 if(error){
                     console.log(error);
