@@ -1,89 +1,44 @@
-<html>
-    <style type="text/css">
-        body {
-            max-width: 500px;
-            margin: auto;
-            overflow: hidden;
-            background: linear-gradient(135deg, #383741 0%,#36343a 27%,#2b2a32 86%,#2b2a32 86%,#2b2a32 100%);
-        }
-        #cookieinput{
-            width: 300px;
-            background-color: transparent;
-            color: white;
-            border: 1px solid white;
-            border-radius: 5px;
-            padding-left: 5px;
-            padding-bottom: 2px;
-        }
-        select{
-            background-color: transparent;
-            color: white;
-            border: 1px solid white;
-            user-select: none;
-        }
-        button{
-            background-color: transparent;
-            color: white;
-            border: none;
-            cursor: pointer;
-            user-select: none;
-        }
-        #main button{
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        html{
-            user-select: none;
-        }
-        input:focus,
-        select:focus,
-        textarea:focus,
-        button:focus {
-            outline: none;
-            color:#DDDDDD
-        }
-    </style>
+<head>
+    <meta charset="UTF-8"/>
+    <title>xHalfBakedGuy Manual Checkout</title>
+      <link href="style.css" rel="stylesheet">
+    </head>
     <script>
         const { ipcRenderer } = require('electron');
         window.ipcRenderer = ipcRenderer;
-</script>
-<body>
-    <div id="header" style="-webkit-app-region: drag;">
-    <button disabled style="cursor:default">
-        xHalfBakedGuy Manual Checkout
-    </button>
-    <button style="float:right;margin-top:1px;-webkit-app-region: no-drag;" onclick="ipcRenderer.send('close')">
-        close
-    </button>
-    
-    <button style="float:right;margin-top:1px;-webkit-app-region: no-drag;" onclick="ipcRenderer.send('close_all')">
-        close all opened windows
-    </button>
-    </div>
-    <center>
-        <div id="main" style="padding-top:90px;">
-            <button disabled style="cursor:default">
-        enter cart cookie and select region
-    </button><br>
-    <input type="text" id="cookieinput">
-    <select id="regionselect">
-        <option value="DE">DE</option>
-        <option value="UK">UK</option>
-        <option value="US">US</option>
-    </select><br>
-    <button onclick="open_new()">open regular checkout</button>
-    <button onclick="open_new('paypal')">open paypal checkout</button>
+    </script>
+    <body>
+        <div class="blacktop">
+            <div class="topmenu left">
+                xHalfBakedGuy Manual Checkout
+            </div>
+            <div class="topmenu right" onclick="ipcRenderer.send('close')">
+                close
+            </div>
         </div>
-    </center>
-    <script>
-        function open_new(type = false){
-            let task = {
-                cookie: document.getElementById('cookieinput').value,
-                region: document.getElementById('regionselect').value,
-                type
+        <div class="main">
+            enter cart cookie and select region<br>
+            <input type="text" id="cookieinput">
+            <select id="regionselect">
+                <option value="DE">DE</option>
+                <option value="UK">UK</option>
+                <option value="US">US</option>
+            </select><br>
+            <button onclick="open_new()">open regular checkout</button>
+            <button onclick="open_new('paypal')">open paypal checkout</button><br>
+            <button style="padding-top: 20px" onclick="ipcRenderer.send('close_all')">
+                close all opened windows
+            </button>
+        </div>
+        <script>
+            function open_new(type = false){
+                let task = {
+                    cookie: document.getElementById('cookieinput').value,
+                    region: document.getElementById('regionselect').value,
+                    type
+                }
+                ipcRenderer.send('open_new', task);
             }
-            ipcRenderer.send('open_new', task);
-        }
-</script>
-</body>
+        </script>
+    </body>
 </html>
