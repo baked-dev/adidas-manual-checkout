@@ -15,8 +15,10 @@ class CheckoutWindow extends BrowserWindow{
         this.region = region;
         this.webContents.session.clearStorageData([], () => {
             if(cookie.includes('document.cookie')) cookie = cookie.split('"')[1]
+            console.log(cookie);
             this.webContents.session.cookies.set({url: 'http://www.'+region_data[this.region].base, name: cookie.split('=')[0], value: cookie.split('=')[1]}, (error) => {
                 if(error) throw new Error(error);
+                console.log(`https://www.${region_data[this.region].base}/on/demandware.store/Sites-adidas-${region_data[this.region].countrycode}-Site/${region_data[this.region].lang}/${type==="paypal"?"CODelivery-RedirectToPaypal":"COShipping-Show"}`)
                 this.loadURL(`https://www.${region_data[this.region].base}/on/demandware.store/Sites-adidas-${region_data[this.region].countrycode}-Site/${region_data[this.region].lang}/${type==="paypal"?"CODelivery-RedirectToPaypal":"COShipping-Show"}`)
             })
         })

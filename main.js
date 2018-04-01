@@ -21,6 +21,7 @@ ipcMain.on('close', () => {
     }
     UIWindow.close();
 })
+
 ipcMain.on('close_all', () => {
     for(let key of Object.keys(checkoutWindowMap)){
         if(checkoutWindowMap[key]){
@@ -33,3 +34,4 @@ ipcMain.on('close_all', () => {
         }
     }
 })
+

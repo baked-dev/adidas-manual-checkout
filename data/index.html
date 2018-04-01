@@ -8,25 +8,30 @@
         const { ipcRenderer } = require('electron');
         window.ipcRenderer = ipcRenderer;
     </script>
-    <body>
+    <header>
         <div class="blacktop">
-            <div class="topmenu left">
+            <div class="menu left">
                 xHalfBakedGuy Manual Checkout
             </div>
-            <div class="topmenu right" onclick="ipcRenderer.send('close')">
-                close
+            <div class="menu right" onclick="ipcRenderer.send('close')">
+                &#10006;
             </div>
         </div>
+    </header>
+    <body>
         <div class="main">
-            enter cart cookie and select region<br>
+            <div class="inputtext">
+                enter cart cookie and select region<br>
+            </div>
             <input type="text" id="cookieinput">
             <select id="regionselect">
                 <option value="DE">DE</option>
                 <option value="UK">UK</option>
                 <option value="US">US</option>
             </select><br>
-            <button onclick="open_new()">open regular checkout</button>
-            <button onclick="open_new('paypal')">open paypal checkout</button><br>
+            <div style="margin-bottom: 5px">Checkout<br></div>
+            <button title="Regular Checkout" onclick="open_new()"><img src="Adidas_Logo.png" width="40" height="27"></button>
+            <button title="PayPal Checkout" onclick="open_new('paypal')"><img src="PayPal_Logo.png" width="27" height="27"></button><br>
             <button style="padding-top: 20px" onclick="ipcRenderer.send('close_all')">
                 close all opened windows
             </button>
